@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-main() {
+int main() {
 	int matchJoue = 0;
 	int butMe = 0;
 	int butYou = 0;
