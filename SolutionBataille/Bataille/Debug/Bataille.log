@@ -1,0 +1,3 @@
+﻿  Bataille.c
+e:\cour 2\c\solutionbataille\bataille\bataille.c(164): warning C4101: 'nbCarteMain' : variable locale non référencée
+  Bataille.vcxproj -> E:\Cour 2\C\SolutionBataille\Debug\Bataille.exe
