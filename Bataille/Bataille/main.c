@@ -8,6 +8,13 @@ int main() {
 	srand(time(NULL));
 	int NbrCarte = 52;
 	int i;
+	/*
+	zoneJeu signifie la ou on pose nos carte
+	carte signifie les carte en général
+	j1 signifie le main du joueur 1
+	j2 signifie la main du joueur 2
+	*/
+	CARTE * zoneJeu = (CARTE*)calloc(52, sizeof(CARTE));
 	CARTE *carte = (CARTE *)calloc(NbrCarte, sizeof(CARTE));
 	CARTE *j1 = (CARTE *)calloc(NbrCarte, sizeof(CARTE));
 	CARTE *j2 = (CARTE *)calloc(NbrCarte, sizeof(CARTE));
@@ -17,55 +24,61 @@ int main() {
 		creationDeck(carte, NbrCarte);
 		for (i = 0;i < NbrCarte; i++)
 		{
-			printf("carte %d || couleur %d \n", (carte + i)->valeur, (carte + i)->couleur);
+			AfficherCarte(carte, i);;
 		}
 		system("pause");
 		system("cls");
 
 		MelangeCarte(carte, NbrCarte);
+
 		for (i = 0; i < NbrCarte; i++)
 		{
-			printf("carte %d || couleur %d \n", (carte + i)->valeur, (carte + i)->couleur);
+			AfficherCarte(carte, i);;
 		}
-
 		system("pause");
 		system("cls");
-
 		Distribution(carte, j1, j2, NbrCarte);
+
+		printf("--------------- Deck du joueur 1 ---------------\n");
 		for (i = 0; i < NbrCarte/2; i++)
 		{
-			printf("J1 -- --  carte %d || couleur %d \n", (j1 + i)->valeur, (j1 + i)->couleur);
+			AfficherCarte(j1, i);
 		}
-
 		system("pause");
 		system("cls");
 
+		printf("--------------- Deck du joueur 2 ---------------\n");
 		for (i = 0; i < NbrCarte/2; i++)
 		{
-			printf("J2 -- --  carte %d || couleur %d \n", (j2 + i)->valeur, (j2 + i)->couleur);
+			AfficherCarte(j2, i);
 		}
 		system("pause");
-		system("cls");
+		system("cls");		
 
-		bataille(j1, j2, NbrCarte);
-
-		for (i = 0; (j1 + i)->valeur != 0 / 2; i++)
+		do
 		{
-			printf("J1 -- --  carte %d || couleur %d \n", (j1 + i)->valeur, (j1 + i)->couleur);
-		}
+			j1VSj2(j1, j2, NbrCarte, zoneJeu);
+		} while (CompterCarte(j1, NbrCarte) != 0 && CompterCarte(j2, NbrCarte) != 0);
 
-		system("pause");
-		system("cls");
-
-		for (i = 0; (j2 + i)->valeur!=0 / 2; i++)
+		if (!(CompterCarte(j1, NbrCarte)))
 		{
-			printf("J2 -- --  carte %d || couleur %d \n", (j2 + i)->valeur, (j2 + i)->couleur);
+			printf("Félicitation J2 pour avoir gagner a la bataille");
 		}
+		else
+		{
+			printf("Félicitation J1 pour avoir gagner a la bataille");
+		}
+
 		system("pause");
+
+		free (zoneJeu);
+		free (carte);
+		free (j1);
+		free (j2);
 	}
 	else
 	{
-		printf("Probleme d'allocation dynamique (l.11)\n'CARTE *carte = (CARTE *)calloc(NbrCarte, sizeof(CARTE));'\n");
+		printf("Probleme d'allocation dynamique \n");
 	}
 
 	return 0;
