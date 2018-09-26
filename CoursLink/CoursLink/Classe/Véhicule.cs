@@ -6,24 +6,22 @@ using System.Threading.Tasks;
 
 namespace CoursLink.Classe
 {
+
+    /// <summary>
+    ///     Représente un véhicule dans un parc de location.
+    /// </summary>
     class Vehicule
     {
         #region Static
 
         private static Random _Random = new Random();
         private static string[] _Colors = new string[] { "Jaune", "Rouge", "Vert", "Bleu", "Blanc" };
-        private static int[] _EnginePowers = new int[] { 75, 90, 110, 130, 150, 170, 190, 220 };
-        private static string[] _Brands = new string[] { "peugeot", "citroen", "ford", "ferrari"};
-        private static string[] _Models = new string[] { "punto", "mustang", "C4", "bugatti" };
-        private static int[] _DoorCounts = new int[] { 3, 5, 7};
-        private static int[] _SeatCounts = new int[] { 2, 5, 7, 9};
-        private static string[] _RentalRanges = new string[] { "Eco", "Standard", "Luxe"};
-        
-
-
-
-
-
+        private static int[] _EnginePowers = new int[] { 70, 90, 120, 180 };
+        private static string[] _Brands = new string[] { "Ford", "Citroën", "BMW", "Toyota", "Dacia" };
+        private static string[] _Models = new string[] { "208", "C3", "C4", "Focus", "Passat", "Polo", "Golf", "308" };
+        private static int[] _DoorCounts = new int[] { 3, 5 };
+        private static int[] _SeatCounts = new int[] { 2, 5, 7 };
+        private static string[] _RentalRanges = new string[] { "Eco", "Standard", "Luxe" };
 
         #endregion
 
@@ -299,17 +297,16 @@ namespace CoursLink.Classe
                 Vehicule vehicule = new Vehicule();
 
                 vehicule.RegistrationNumber = Guid.NewGuid().ToString();
-                vehicule.Color = _Colors[_Random.Next(0, _Colors.Length )];
-                vehicule.Mileage = _Random.Next(0, 500000);
-                vehicule.EnginePower = _EnginePowers[_Random.Next(0,_EnginePowers.Length )];
-                vehicule._Brand = _Brands[_Random.Next(0, _Brands.Length )];
-                vehicule._Model = _Models[_Random.Next(0, _Models.Length )];
-                vehicule._DoorCount = _DoorCounts[_Random.Next(0, _DoorCounts.Length )];
-                vehicule._SeatCount = _SeatCounts[_Random.Next(0, _SeatCounts.Length )];
-                vehicule._RentalRange = _RentalRanges[_Random.Next(0, _RentalRanges.Length )];
-                vehicule._RentalBasePricePerDay = _Random.NextDouble() * (1200 - 150) + 150;
+                vehicule.Color = _Colors[_Random.Next(0, _Colors.Length)];
+                vehicule.Mileage = _Random.Next(0, 120000);
+                vehicule.EnginePower = _EnginePowers[_Random.Next(0, _EnginePowers.Length)];
+                vehicule.Brand = _Brands[_Random.Next(0, _Brands.Length)];
+                vehicule.Model = _Models[_Random.Next(0, _Models.Length)];
                 vehicule.ArrivalDateTime = DateTime.Now.Date.AddDays(-_Random.Next(0, 700));
-
+                vehicule.DoorCount = _DoorCounts[_Random.Next(0, _DoorCounts.Length)];
+                vehicule.SeatCount = _SeatCounts[_Random.Next(0, _SeatCounts.Length)];
+                vehicule.RentalRange = _RentalRanges[_Random.Next(0, _RentalRanges.Length)];
+                vehicule._RentalBasePricePerDay = Math.Round((_Random.NextDouble() * 70) + 10, 2);
 
                 result.Add(vehicule);
             }
@@ -321,3 +318,4 @@ namespace CoursLink.Classe
         #endregion
     }
 }
+
