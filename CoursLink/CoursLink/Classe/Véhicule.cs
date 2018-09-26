@@ -72,8 +72,10 @@ namespace CoursLink.Classe
         /// </summary>
         private int _SeatCount;
 
+
+        
         /// <summary>
-        ///     Gamme de location (Eco, Standard ou Luxe).
+        ///   Autre objet :  Gamme de location (Eco, Standard ou Luxe).
         /// </summary>
         private string _RentalRange;
 

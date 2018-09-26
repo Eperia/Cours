@@ -46,7 +46,7 @@ namespace CoursLink
                 Console.WriteLine("0 - Quitter");
 
                 userChoice = Console.ReadLine();
-
+                Console.Clear();
                 #endregion
 
                 switch (userChoice)
@@ -149,12 +149,11 @@ namespace CoursLink
 
                         do
                         {
-
-
                             #region Switch
+                            Console.WriteLine($"{query.Count()}  véhicule est/sont susceptible de vous intéresser");
+
                             Console.WriteLine("---Recherche---");
                             Console.WriteLine("1 - La marque");
-                            //2 - Demander à l'utilisateur une marque et afficher les voitures de cette marque.
                             Console.WriteLine("2 - Le modèle");
                             Console.WriteLine("3 - nombre de porte min");
                             Console.WriteLine("4 - nombre de porte max");
@@ -170,13 +169,15 @@ namespace CoursLink
 
                             Console.WriteLine("0 - Quitter");
                             userChoiceRech = Console.ReadLine();
+                            Console.Clear();
                             switch (userChoiceRech)
                             {
                                 case "1":
                                     #region ForEach
                                     Console.WriteLine("Entré la marque :");
                                     SearchBrand = Console.ReadLine().ToLower();
-                                    query = query.Where(vehicule => vehicule.Brand.ToLower().Contains(SearchBrand));
+
+                                    query = query.Where(vehicule => vehicule.Brand.ToLower().Contains(SearchBrand) ).ToList();
 
                                     #endregion
                                     break;
@@ -184,7 +185,7 @@ namespace CoursLink
                                     #region ForEach
                                     Console.WriteLine("Entré le Model :");
                                     SearchModel = Console.ReadLine().ToLower();
-                                    query = query.Where(vehicule => vehicule.Model.ToLower().Contains(SearchModel));
+                                    query = query.Where(vehicule => vehicule.Model.ToLower().Contains(SearchModel)).ToList();
 
 
                                     #endregion
@@ -193,7 +194,7 @@ namespace CoursLink
                                     #region ForEach
                                     Console.WriteLine("Entré le nombre de porte (min) :");
                                     SearchDoorCounts = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.DoorCount >= SearchDoorCounts);
+                                    query = query.Where(vehicule => vehicule.DoorCount >= SearchDoorCounts).ToList();
 
                                     #endregion
                                     break;
@@ -202,7 +203,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de porte (max) :");
                                     SearchDoorCounts = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.DoorCount <= SearchDoorCounts);
+                                    query = query.Where(vehicule => vehicule.DoorCount <= SearchDoorCounts).ToList();
 
                                     #endregion
                                     break;
@@ -211,7 +212,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de siège (min) :");
                                     SearchSeatCounts = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.SeatCount >= SearchSeatCounts);
+                                    query = query.Where(vehicule => vehicule.SeatCount >= SearchSeatCounts).ToList();
 
                                     #endregion
                                     break;
@@ -220,7 +221,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de siège (max) :");
                                     SearchSeatCounts = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.SeatCount <= SearchSeatCounts);
+                                    query = query.Where(vehicule => vehicule.SeatCount <= SearchSeatCounts).ToList();
 
                                     #endregion
                                     break;
@@ -229,7 +230,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de kilometre (min) :");
                                     SearchMileage = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.Mileage >= SearchMileage);
+                                    query = query.Where(vehicule => vehicule.Mileage >= SearchMileage).ToList();
 
                                     #endregion
                                     break;
@@ -238,9 +239,9 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré la couleur (Jaune, Rouge, Vert, Bleu, Blanc:");
                                     SearchColor = Console.ReadLine().ToLower();
-                                    query = query.Where(vehicule => vehicule.Color.ToLower().Contains(SearchColor));
+                                    query = query.Where(vehicule => vehicule.Color.ToLower().Contains(SearchColor)).ToList();
 
-                                    
+
                                     #endregion
                                     break;
                                 case "9":
@@ -248,7 +249,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Prix de la journée (max)");
                                     SearchTotalRentalPricePerDay = ValidateNumberDouble();
-                                    query = query.Where(vehicule => vehicule.TotalRentalPricePerDay > SearchTotalRentalPricePerDay);
+                                    query = query.Where(vehicule => vehicule.TotalRentalPricePerDay > SearchTotalRentalPricePerDay).ToList();
 
                                     #endregion
                                     break;
@@ -257,7 +258,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré Gamme de location (Eco, Standard ou Luxe)");
                                     SearchColor = Console.ReadLine().ToLower();
-                                    query = query.Where(vehicule => vehicule.RentalRange.ToLower().Contains(SearchColor));
+                                    query = query.Where(vehicule => vehicule.RentalRange.ToLower().Contains(SearchColor)).ToList();
 
                                     #endregion
                                     break;
@@ -266,7 +267,7 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de kilometre (min) :");
                                     SearchEnginePower = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.EnginePower >= SearchEnginePower);
+                                    query = query.Where(vehicule => vehicule.EnginePower >= SearchEnginePower).ToList();
 
                                     #endregion
                                     break;
@@ -275,18 +276,21 @@ namespace CoursLink
 
                                     Console.WriteLine("Entré le nombre de kilometre (max) :");
                                     SearchEnginePower = ValidateNumber();
-                                    query = query.Where(vehicule => vehicule.EnginePower <= SearchEnginePower);
+                                    query = query.Where(vehicule => vehicule.EnginePower <= SearchEnginePower).ToList();
 
                                     #endregion
                                     break;
                                 case "13":
-                                    
-                                    query.ToList();
-                                    
+
+                                    ShowVehicule(query);
+                                    Console.WriteLine("Appuer sur une touche pour quitter");
+                                    Console.ReadKey();
+
                                     break;
                                 default:
                                     break;
                             }
+                            Console.Clear();
                         } while (userChoiceRech != "0");
                         #endregion
                         break;
@@ -294,8 +298,7 @@ namespace CoursLink
                     default:
                         break;
                 }
-
-                Console.ReadKey();
+                Console.Clear();
             } while (userChoice != "0");
 
 
@@ -310,6 +313,18 @@ namespace CoursLink
             Console.WriteLine($"{vehicule.DoorCount} portes, {vehicule.SeatCount} places, {vehicule.Mileage} km ({vehicule.ArrivalDateTime:d})");
             Console.WriteLine($"{vehicule.RentalBasePricePerDay} EUR/j * {vehicule.RangeCoef} = {vehicule.TotalRentalPricePerDay} EUR/j");
             Console.WriteLine();
+        }
+        static void ShowVehicule(IEnumerable<Vehicule> vehicules)
+        {
+            foreach (var vehicule in vehicules)
+            {
+                Console.WriteLine($"---[{vehicule.RegistrationNumber}]---");
+                Console.WriteLine($"{vehicule.Brand} {vehicule.Model} {vehicule.Color} {vehicule.EnginePower} ch, gamme {vehicule.RentalRange}");
+                Console.WriteLine($"{vehicule.DoorCount} portes, {vehicule.SeatCount} places, {vehicule.Mileage} km ({vehicule.ArrivalDateTime:d})");
+                Console.WriteLine($"{vehicule.RentalBasePricePerDay} EUR/j * {vehicule.RangeCoef} = {vehicule.TotalRentalPricePerDay} EUR/j");
+                Console.WriteLine();
+            }
+
         }
         public static DateTime ValidateDate()
         {
