@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classe\Couleur.cs" />
+    <Compile Include="Classe\Gamme.cs" />
+    <Compile Include="Classe\Marque.cs" />
+    <Compile Include="Classe\Models.cs" />
     <Compile Include="Classe\Véhicule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
