@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Garage.WPFClient.Marque.InformationMarque"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Garage.WPFClient.Marque"
+            mc:Ignorable="d" Height="88.625" Width="322" Background="#FF211C1C">
+    <Grid HorizontalAlignment="Left" Width="322">
+        <Label x:Name="LbName" Content="Name : " HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="101" Foreground="White"/>
+        <TextBox x:Name="TxtName" HorizontalAlignment="Left" Height="23" Margin="131,6,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="172"/>
+        <Button x:Name="BtSauv" Content="Sauvegarder" HorizontalAlignment="Left" Margin="70,46,0,0" VerticalAlignment="Top" Width="75" Click="BtSauv_Click"/>
+        <Button x:Name="BtSupr" Content="Supprimer" HorizontalAlignment="Left" Margin="176,46,0,0" VerticalAlignment="Top" Width="75" Click="BtSupr_Click" />
+    </Grid>
+</UserControl>

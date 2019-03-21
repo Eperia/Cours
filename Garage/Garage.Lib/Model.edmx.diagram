@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="371cc6869e0e46e6999ae220b7e93086" Name="Diagram1">
+        <EntityTypeShape EntityType="GarageDB.DataBaseModel.Brand" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDB.DataBaseModel.Model" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDB.DataBaseModel.Rent" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDB.DataBaseModel.RentalRange" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDB.DataBaseModel.Vehicle" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="GarageDB.DataBaseModel.FK_Model_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDB.DataBaseModel.FK_Model_RentalRange" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDB.DataBaseModel.FK_Vehicle_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDB.DataBaseModel.FK_Rent_Vehicle" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

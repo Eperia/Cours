@@ -1,0 +1,22 @@
+﻿<Window x:Class="Garage.WPFClient.vehicule.GestionVehicule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Garage.WPFClient.vehicule"
+        mc:Ignorable="d"
+        Title="GestionVehicule" Height="615.714" Width="921.429">
+    <Grid Margin="0,0,2,4">
+        <ListView HorizontalAlignment="Left" Height="487" VerticalAlignment="Top" Width="891" Margin="10,84,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Model" Width="70" DisplayMemberBinding="{Binding Libelle}" />
+                    <GridViewColumn Header="Couleur" Width="70" DisplayMemberBinding="{Binding Libelle}" />
+                    <GridViewColumn Header="Nombre de porte" Width="125" DisplayMemberBinding="{Binding Libelle}" />
+                    <GridViewColumn Header="libelle" Width="70" DisplayMemberBinding="{Binding Libelle}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Gestion des véhicules" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,5,0,0" Height="74" Width="549" FontSize="45"/>
+    </Grid>
+</Window>
